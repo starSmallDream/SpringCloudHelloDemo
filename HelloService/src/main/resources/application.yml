@@ -1,0 +1,23 @@
+server:
+  port: 8200
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka/
+  instance:
+    instance-id: HelloService
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: HelloService
+  cloud:
+    config:
+      enabled: false
+      discovery:
+        service-id: ConfigServer
+        enabled: true
